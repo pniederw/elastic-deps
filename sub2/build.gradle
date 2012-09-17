@@ -1,0 +1,3 @@
+dependencies {
+  compile elastic("mycompany:sub3:1.0", "sub3")
+}

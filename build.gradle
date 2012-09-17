@@ -1,0 +1,21 @@
+subprojects {
+  apply plugin: "java"
+  apply plugin: "maven"
+  
+  group = "mycompany"
+  version = "1.0"
+  
+  repositories {
+    mavenLocal()
+  }
+}
+
+def elastic(notation, projectName) {
+  if (allprojects.find { it.name == projectName }) {
+    println "adding project dependency on project $projectName"
+    project(projectName)
+  } else {
+    println "adding binary dependency on project $projectName"
+    dependencies.create(notation)
+  }
+}
